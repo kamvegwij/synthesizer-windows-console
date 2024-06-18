@@ -8,11 +8,14 @@ atomic<double> dfrequencyOutput = 0.0;
 
 double MakeNoise(double dTime)
 {
-    double dsoundOutput = 0.5 * sin(dfrequencyOutput * 2 * 3.14159 * dTime);
-    if (dsoundOutput > 0.0)
+    double dsoundOutput = 1.0 * sin(dfrequencyOutput * 2.0 * 3.14159 * dTime) + sin((dfrequencyOutput + 20.0) * 2.0 * 3.14159 * dTime);
+    return dsoundOutput * 0.4;
+
+    /*if (dsoundOutput > 0.0)
         return 0.2;
     else
         return -0.2;
+        */
 
     //we can use other periodic functions to create different sounds.
     //sine wave. returns frequency in hz. 
